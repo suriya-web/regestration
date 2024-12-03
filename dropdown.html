@@ -1,0 +1,250 @@
+<html>
+<head> 
+    <style>
+         <style>
+               body{
+                    margin: 0%;
+                    padding: 0%;
+                    background-image: url(image6.jpg);
+                    background-size: cover;
+                }
+                nav{
+                  width: 100%;
+                  display: flex;
+                  text-align: center;
+                  justify-content: space-between;
+                  padding-top: 0px;
+                  margin: 0;
+                  color: white;
+                  font-size: 20px; 
+                }
+                ul{
+                    padding-left: 580px;
+                }
+               ul a{
+                color: White;
+                text-decoration: none;
+                padding: 3px;
+                margin-left: 20px;
+                padding-left: 3px;
+               }
+               a:hover{
+                color: yellow;
+               }
+
+               #form{
+                width: 400px;
+                margin: 10vh auto 0 auto;
+                background-color:white;
+                opacity: 0.8px;
+                border-radius: 5px;
+                padding: 30px;
+                color: black;
+                opacity:0.8 ;
+               }
+               h1{
+                text-align: center;
+               }
+               #form button{
+                background-color: rgb(183, 0, 255);
+                color:white;
+                border: 1px solid   rgb(183, 0, 255);
+                border-radius: 5px;
+                padding: 10px;
+                margin: 20px 0px;
+                cursor: pointer;
+                font-size: 20px;
+                width: 100%;
+               }
+               .input-group{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 15px;
+               }
+               .input-group input{
+                border-radius: 5px;
+                font-size: 10px;
+                margin-top: 5px;
+                padding: 10px;
+                border:  1px solid black;
+               }
+               .input-group input:focus{
+                outline: none;
+               }
+               .error{
+                color: red;
+                font-size: 10px;
+                margin-top: 3px;
+               }
+               .input-group.success input{
+                border-color: green;
+               }
+               .input-group.error input{
+                border-color: red;
+               }
+               .input-group select{
+                border-radius: 5px;
+                font-size: 10px;
+                margin-top: 5px;
+                padding: 10px;
+                border:  1px solid black;
+               }
+               .main{
+            display: flex;
+            background: rgb(6, 214, 222);
+            background: linear-gradient(90deg, rgb(15, 171, 192) 0%, rgb(229, 6, 229) 35%);
+            gap: 50px;
+            padding-left: 10px;
+            width: 100%;
+            height: 75px;
+            margin-top: 0px;
+            padding-top: 0px;
+            align-items: center;
+              }
+            </style>
+    </style>
+<title>Demo by kishan Radadiya</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        // Countries
+        var country_arr = new Array("Select State","TamilNadu","Kerala","Kartaka");
+
+        $.each(country_arr, function (i, item) {
+            $('#country').append($('<option>', {
+                value: i,
+                text : item,
+            }, '</option>' ));
+        });
+
+        // States
+        var s_a = new Array();
+        s_a[0]="Select city";
+        s_a[1]="Select city|Coimbatore|Chennai|Ariyalur|Chengalpattu|Cuddalore|Dharmapuri|	Dindigul|";
+        s_a[2]="Select city|Alappuzha|Ernakulam|Idukki|Kannur|Kasaragod|Kollam|";
+        s_a[3]="Select city|Bidar|Bagalkot|Chamarajanagar|Chikballapur|Bagalkote|Belagavi";
+        
+
+        // Cities
+        
+        $('#country').change(function(){
+            var c = $(this).val();
+            var state_arr = s_a[c].split("|");
+            $('#state').empty();
+            $('#city').empty();
+            if(c==0){
+                $('#state').append($('<option>', {
+                    value: '0',
+                    text: 'Select city',
+                }, '</option>'));
+            }else {
+                $.each(state_arr, function (i, item_state) {
+                    $('#state').append($('<option>', {
+                        value: item_state,
+                        text: item_state,
+                    }, '</option>'));
+                });
+            }
+            $('#city').append($('<option>', {
+                value: '0',
+                text: 'Select City',
+            }, '</option>'));
+        });
+
+        $('#state').change(function(){
+            var s = $(this).val();
+            if(s=='Select city'){
+                $('#city').empty();
+                $('#city').append($('<option>', {
+                    value: '0',
+                    text: 'Select City',
+                }, '</option>'));
+            }
+            var city_arr = c_a[s].split("|");
+            $('#city').empty();
+
+            $.each(city_arr, function (j, item_city) {
+                $('#city').append($('<option>', {
+                    value: item_city,
+                    text: item_city,
+                }, '</option>'));
+            });
+
+
+        });
+    });
+</script>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <img src="logo1.png" height="40px" width="150px">
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <a href="Home.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="Registration form.html">Sign up</a>
+                    <a href="login.html">Login</a>
+                    <a href="contact.html">Contact us</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+    <form action="" id="form">
+            <h1>Registration form</h1>
+         
+            <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <div class="error"></div> 
+            </div>
+            
+           
+           <div class="input-group">
+           <label for="password">Password</label>
+           <input type="password" id="password" name="password">
+           <div class="error"></div>
+           </div>
+             
+          
+          <div class="input-group">
+          <label for="email">Mail id</label>
+          <input type="text" id="email" name="email">
+          <div class="error"></div> 
+          </div>
+          
+         
+         <div class="input-group">
+         <label for="number">Phone number</label>
+         <input type="text" id="number" name="number">
+         <div class="error"></div> 
+         </div>
+
+        
+            <div class="input-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address">
+                <div class="error"></div> 
+                </div>
+                <div class="input-group">
+                    <label for="Date of birth">Date of birth</label>
+                    <input type="date" id="Date of birth" name="Date of birth">
+                    <div class="error"></div> 
+                    </div>
+                
+
+                    <label>gender</label>
+                    <label>male</label>
+              <input type="radio" >
+              <label>Female</label>
+              <input type="radio" >
+              <br><br>
+<select name="State" id="country"></select> <br>
+<select name="City" id="state"></select> <br>
+
+</form>
+</body>
+</html>
